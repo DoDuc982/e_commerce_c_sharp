@@ -29,31 +29,32 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label10 = new Label();
             btnBack = new Button();
             btnDelete = new Button();
             btnEdit = new Button();
             btnAdd = new Button();
+            txtId = new TextBox();
+            btnFind = new Button();
             panel2 = new Panel();
+            cbCategory = new ComboBox();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
             label2 = new Label();
-            textCategory = new TextBox();
             txtContent = new TextBox();
-            textSoldQuantity = new TextBox();
+            txtSoldQuantity = new TextBox();
             txtQuantity = new TextBox();
             txtDiscountPrice = new TextBox();
             txtImage = new TextBox();
             txtPrice = new TextBox();
             txtName = new TextBox();
-            txtId = new TextBox();
-            btnFind = new Button();
             label1 = new Label();
             dgvProduct = new DataGridView();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProduct).BeginInit();
@@ -61,15 +62,27 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label10);
             panel1.Controls.Add(btnBack);
             panel1.Controls.Add(btnDelete);
             panel1.Controls.Add(btnEdit);
             panel1.Controls.Add(btnAdd);
+            panel1.Controls.Add(txtId);
+            panel1.Controls.Add(btnFind);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 506);
             panel1.Name = "panel1";
             panel1.Size = new Size(1114, 61);
             panel1.TabIndex = 2;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(342, 20);
+            label10.Name = "label10";
+            label10.Size = new Size(79, 15);
+            label10.TabIndex = 21;
+            label10.Text = "Mã sản phẩm";
             // 
             // btnBack
             // 
@@ -83,34 +96,54 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(306, 17);
+            btnDelete.Location = new Point(672, 17);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(174, 17);
+            btnEdit.Location = new Point(174, 6);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(75, 23);
+            btnEdit.Size = new Size(113, 44);
             btnEdit.TabIndex = 1;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(50, 17);
+            btnAdd.Location = new Point(45, 6);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(99, 44);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
+            // txtId
+            // 
+            txtId.Location = new Point(433, 17);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(146, 23);
+            txtId.TabIndex = 1;
+            // 
+            // btnFind
+            // 
+            btnFind.Location = new Point(592, 17);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(75, 23);
+            btnFind.TabIndex = 2;
+            btnFind.Text = "Tìm kiếm";
+            btnFind.UseVisualStyleBackColor = true;
+            btnFind.Click += btnFind_Click;
+            // 
             // panel2
             // 
+            panel2.Controls.Add(cbCategory);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
@@ -119,22 +152,92 @@
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(textCategory);
             panel2.Controls.Add(txtContent);
-            panel2.Controls.Add(textSoldQuantity);
+            panel2.Controls.Add(txtSoldQuantity);
             panel2.Controls.Add(txtQuantity);
             panel2.Controls.Add(txtDiscountPrice);
             panel2.Controls.Add(txtImage);
             panel2.Controls.Add(txtPrice);
             panel2.Controls.Add(txtName);
-            panel2.Controls.Add(txtId);
-            panel2.Controls.Add(btnFind);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(1114, 202);
             panel2.TabIndex = 0;
+            // 
+            // cbCategory
+            // 
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Location = new Point(684, 46);
+            cbCategory.Margin = new Padding(3, 2, 3, 2);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(146, 23);
+            cbCategory.TabIndex = 20;
+            cbCategory.SelectedIndexChanged += cbCategory_index;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(605, 100);
+            label9.Name = "label9";
+            label9.Size = new Size(57, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Nội dung";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(605, 49);
+            label8.Name = "label8";
+            label8.Size = new Size(62, 15);
+            label8.TabIndex = 18;
+            label8.Text = "Danh mục";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(343, 150);
+            label7.Name = "label7";
+            label7.Size = new Size(77, 15);
+            label7.TabIndex = 17;
+            label7.Text = "Số lượng bán";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(343, 100);
+            label6.Name = "label6";
+            label6.Size = new Size(54, 15);
+            label6.TabIndex = 16;
+            label6.Text = "Số lượng";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(45, 150);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Link ảnh";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(343, 49);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 15);
+            label4.TabIndex = 14;
+            label4.Text = "Giá giảm";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(45, 100);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 15);
+            label3.TabIndex = 13;
+            label3.Text = "Giá sản phẩm";
             // 
             // label2
             // 
@@ -145,13 +248,6 @@
             label2.TabIndex = 12;
             label2.Text = "Tên sản phẩm";
             // 
-            // textCategory
-            // 
-            textCategory.Location = new Point(684, 46);
-            textCategory.Name = "textCategory";
-            textCategory.Size = new Size(146, 23);
-            textCategory.TabIndex = 11;
-            // 
             // txtContent
             // 
             txtContent.Location = new Point(684, 97);
@@ -159,12 +255,12 @@
             txtContent.Size = new Size(146, 23);
             txtContent.TabIndex = 10;
             // 
-            // textSoldQuantity
+            // txtSoldQuantity
             // 
-            textSoldQuantity.Location = new Point(433, 147);
-            textSoldQuantity.Name = "textSoldQuantity";
-            textSoldQuantity.Size = new Size(146, 23);
-            textSoldQuantity.TabIndex = 9;
+            txtSoldQuantity.Location = new Point(433, 147);
+            txtSoldQuantity.Name = "txtSoldQuantity";
+            txtSoldQuantity.Size = new Size(146, 23);
+            txtSoldQuantity.TabIndex = 9;
             // 
             // txtQuantity
             // 
@@ -201,23 +297,6 @@
             txtName.Size = new Size(146, 23);
             txtName.TabIndex = 3;
             // 
-            // txtId
-            // 
-            txtId.Location = new Point(433, 12);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(146, 23);
-            txtId.TabIndex = 1;
-            txtId.Text = "Nhập mã sản phẩm";
-            // 
-            // btnFind
-            // 
-            btnFind.Location = new Point(620, 10);
-            btnFind.Name = "btnFind";
-            btnFind.Size = new Size(75, 23);
-            btnFind.TabIndex = 2;
-            btnFind.Text = "Tìm kiếm";
-            btnFind.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -238,69 +317,7 @@
             dgvProduct.RowTemplate.Height = 25;
             dgvProduct.Size = new Size(1114, 304);
             dgvProduct.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(45, 100);
-            label3.Name = "label3";
-            label3.Size = new Size(79, 15);
-            label3.TabIndex = 13;
-            label3.Text = "Giá sản phẩm";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(343, 49);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 15);
-            label4.TabIndex = 14;
-            label4.Text = "Giá giảm";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(45, 150);
-            label5.Name = "label5";
-            label5.Size = new Size(52, 15);
-            label5.TabIndex = 15;
-            label5.Text = "Link ảnh";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(343, 100);
-            label6.Name = "label6";
-            label6.Size = new Size(54, 15);
-            label6.TabIndex = 16;
-            label6.Text = "Số lượng";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(343, 150);
-            label7.Name = "label7";
-            label7.Size = new Size(77, 15);
-            label7.TabIndex = 17;
-            label7.Text = "Số lượng bán";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(605, 49);
-            label8.Name = "label8";
-            label8.Size = new Size(62, 15);
-            label8.TabIndex = 18;
-            label8.Text = "Danh mục";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(605, 100);
-            label9.Name = "label9";
-            label9.Size = new Size(57, 15);
-            label9.TabIndex = 19;
-            label9.Text = "Nội dung";
+            dgvProduct.CellContentClick += dgvProduct_CellContentClick;
             // 
             // ProductForm
             // 
@@ -314,6 +331,7 @@
             Text = "Product";
             Load += load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProduct).EndInit();
@@ -337,9 +355,8 @@
         private TextBox txtPrice;
         private TextBox txtName;
         private TextBox txtQuantity;
-        private TextBox textCategory;
         private TextBox txtContent;
-        private TextBox textSoldQuantity;
+        private TextBox txtSoldQuantity;
         private Label label2;
         private Label label9;
         private Label label8;
@@ -348,5 +365,7 @@
         private Label label5;
         private Label label4;
         private Label label3;
+        private ComboBox cbCategory;
+        private Label label10;
     }
 }

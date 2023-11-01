@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsAppzz.Functions
 {
@@ -37,6 +38,16 @@ namespace WinFormsAppzz.Functions
             dap.SelectCommand.Connection = Function.Con;
             dap.SelectCommand.CommandText = sql;
             DataTable table = new DataTable();
+            dap.Fill(table);
+            return table;
+        }
+        public static DataSet GetDataToSet(string sql)
+        {
+            SqlDataAdapter dap = new SqlDataAdapter();
+            dap.SelectCommand = new SqlCommand();
+            dap.SelectCommand.Connection = Function.Con;
+            dap.SelectCommand.CommandText = sql;
+            DataSet table = new DataSet();
             dap.Fill(table);
             return table;
         }

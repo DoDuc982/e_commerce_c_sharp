@@ -23,5 +23,12 @@ namespace WinFormsAppzz
             productForm.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            categoryForm.Show();
+            this.Hide();
+        }
     }
 }
