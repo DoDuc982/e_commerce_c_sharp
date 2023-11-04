@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using WinFormsAppzz.Functions;
+using WinFormsAppzz.NewFolder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsAppzz
 {
     public partial class ProductForm : Form
     {
+        Product selectedProduct;
         DataTable? tblCL;
         DataTable? tblCategory;
         public ProductForm()
@@ -63,9 +65,10 @@ namespace WinFormsAppzz
             int soldQuantity = Convert.ToInt32(txtSoldQuantity.Text);
             decimal discountPrice = Convert.ToDecimal(txtDiscountPrice.Text);
             DateTime updated_on = DateTime.Now;
+
             try
             {
-                string sql = "update product set name= '" + name + "', price = " + price + ", image_url='" + imageUrl + "',content = '" + content + "',quantity = " + quantity + ",sold_quantity = " + soldQuantity + ",discount_price = " + discountPrice + ", updated_on = '" + updated_on + "' where id = " + txtId.Text;
+                string sql = "update product set name= '" + name + "', price = " + price + ", image_url='" + imageUrl + "',content = '" + content + "',quantity = " + quantity + ",sold_quantity = " + soldQuantity + ",discount_price = " + discountPrice + ", updated_on = '" + updated_on + "', category_id = " + cbCategory.SelectedValue.ToString() + " where id = " + txtId.Text;
                 Functions.Function.RunSQL(sql);
                 MessageBox.Show("Sửa sản phẩm thành công");
                 loadDataGridView();
@@ -117,19 +120,20 @@ namespace WinFormsAppzz
         private void loadDataGridView()
         {
             string sql;
-            sql = "SELECT * FROM product";
+            sql = "select p.id, p.name, p.price, p.image_url, p.quantity, p.content, p.sold_quantity, p.discount_price, p.created_on, p.updated_on, c.content from product p left join category c on p.category_id = c.id";
             tblCL = Functions.Function.GetDataToTable(sql);
             dgvProduct.DataSource = tblCL;
-            dgvProduct.Columns["id"].HeaderText = "Mã";
-            dgvProduct.Columns["name"].HeaderText = "Tên sản phẩm";
-            dgvProduct.Columns["price"].HeaderText = "Giá sản phẩm";
-            dgvProduct.Columns["image_url"].HeaderText = "Link ảnh";
-            dgvProduct.Columns["quantity"].HeaderText = "Số lượng";
-            dgvProduct.Columns["content"].HeaderText = "Nội dung";
-            dgvProduct.Columns["sold_quantity"].HeaderText = "Số lượng bán";
-            dgvProduct.Columns["discount_price"].HeaderText = "Giá giảm";
-            dgvProduct.Columns["created_on"].HeaderText = "Tạo ngày";
-            dgvProduct.Columns["updated_on"].HeaderText = "Sửa ngày";
+            dgvProduct.Columns[0].HeaderText = "Mã";
+            dgvProduct.Columns[1].HeaderText = "Tên sản phẩm";
+            dgvProduct.Columns[2].HeaderText = "Giá sản phẩm";
+            dgvProduct.Columns[3].HeaderText = "Link ảnh";
+            dgvProduct.Columns[4].HeaderText = "Số lượng";
+            dgvProduct.Columns[5].HeaderText = "Nội dung";
+            dgvProduct.Columns[6].HeaderText = "Số lượng bán";
+            dgvProduct.Columns[7].HeaderText = "Giá giảm";
+            dgvProduct.Columns[8].HeaderText = "Tạo ngày";
+            dgvProduct.Columns[9].HeaderText = "Sửa ngày";
+            dgvProduct.Columns[10].HeaderText = "Danh mục";
             dgvProduct.AllowUserToAddRows = false;
             dgvProduct.EditMode = DataGridViewEditMode.EditProgrammatically;
 
@@ -152,16 +156,17 @@ namespace WinFormsAppzz
                 sql = "SELECT * FROM product where id = " + id;
                 tblCL = Functions.Function.GetDataToTable(sql);
                 dgvProduct.DataSource = tblCL;
-                dgvProduct.Columns["id"].HeaderText = "Mã";
-                dgvProduct.Columns["name"].HeaderText = "Tên sản phẩm";
-                dgvProduct.Columns["price"].HeaderText = "Giá sản phẩm";
-                dgvProduct.Columns["image_url"].HeaderText = "Link ảnh";
-                dgvProduct.Columns["quantity"].HeaderText = "Số lượng";
-                dgvProduct.Columns["content"].HeaderText = "Nội dung";
-                dgvProduct.Columns["sold_quantity"].HeaderText = "Số lượng bán";
-                dgvProduct.Columns["discount_price"].HeaderText = "Giá giảm";
-                dgvProduct.Columns["created_on"].HeaderText = "Tạo ngày";
-                dgvProduct.Columns["updated_on"].HeaderText = "Sửa ngày";
+                dgvProduct.Columns[0].HeaderText = "Mã";
+                dgvProduct.Columns[1].HeaderText = "Tên sản phẩm";
+                dgvProduct.Columns[2].HeaderText = "Giá sản phẩm";
+                dgvProduct.Columns[3].HeaderText = "Link ảnh";
+                dgvProduct.Columns[4].HeaderText = "Số lượng";
+                dgvProduct.Columns[5].HeaderText = "Nội dung";
+                dgvProduct.Columns[6].HeaderText = "Số lượng bán";
+                dgvProduct.Columns[7].HeaderText = "Giá giảm";
+                dgvProduct.Columns[8].HeaderText = "Tạo ngày";
+                dgvProduct.Columns[9].HeaderText = "Sửa ngày";
+                dgvProduct.Columns[10].HeaderText = "Danh mục";
                 dgvProduct.AllowUserToAddRows = false;
                 dgvProduct.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
@@ -186,23 +191,35 @@ namespace WinFormsAppzz
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-
-                DataGridViewRow row = dgvProduct.Rows[e.RowIndex];
-
-                txtId.Text = row.Cells["id"].Value.ToString();
-                txtName.Text = row.Cells["name"].Value.ToString();
-                txtImage.Text = row.Cells["image_url"].Value.ToString();
-                txtContent.Text = row.Cells["content"].Value.ToString();
-                txtPrice.Text = row.Cells["price"].Value.ToString();
-                txtQuantity.Text = row.Cells["quantity"].Value.ToString();
-            }
+            retrieveCurrentRow(e);
         }
 
         private void cbCategory_index(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_productRowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            retrieveCurrentRow(e);
+        }
+        private void retrieveCurrentRow(DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow dr = dgvProduct.Rows[e.RowIndex];
+            selectedProduct = new Product();
+            selectedProduct.id = long.Parse(dr.Cells["id"].Value.ToString());
+            selectedProduct.name = dr.Cells["name"].Value.ToString();
+            selectedProduct.imageUrl = dr.Cells["image_url"].Value.ToString();
+            selectedProduct.content = dr.Cells["content"].Value.ToString();
+            selectedProduct.price = long.Parse(dr.Cells["price"].Value.ToString());
+            selectedProduct.quantity = int.Parse(dr.Cells["quantity"].Value.ToString());
+
+            txtId.Text = selectedProduct.id.ToString();
+            txtName.Text = selectedProduct.name;
+            txtImage.Text = selectedProduct.imageUrl;
+            txtContent.Text = selectedProduct.content;
+            txtPrice.Text = selectedProduct.price.ToString();
+            txtQuantity.Text = selectedProduct.quantity.ToString();
         }
     }
 }

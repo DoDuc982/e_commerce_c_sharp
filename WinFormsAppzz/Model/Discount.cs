@@ -15,5 +15,6 @@ namespace WinFormsAppzz.NewFolder
         public int DiscountFor { get; set; }
         public int DiscountType { get; set; }
         public long Quantity { get; set; }
+        public string content { get; set; }
     }
 }

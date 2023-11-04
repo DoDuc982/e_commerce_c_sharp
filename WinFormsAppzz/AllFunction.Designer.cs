@@ -30,62 +30,70 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            button1 = new Button();
+            btnCategory = new Button();
             btnProduct = new Button();
+            btnDiscount = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnDiscount);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnCategory);
             panel1.Controls.Add(btnProduct);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(700, 338);
+            panel1.Size = new Size(800, 451);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(142, 19);
+            label1.Location = new Point(162, 25);
             label1.Name = "label1";
-            label1.Size = new Size(391, 28);
+            label1.Size = new Size(485, 35);
             label1.TabIndex = 2;
             label1.Text = "Chương trình quản lý dành cho Admin";
             // 
-            // button1
+            // btnCategory
             // 
-            button1.Location = new Point(238, 100);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(168, 47);
-            button1.TabIndex = 1;
-            button1.Text = "Quản lý danh mục";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCategory.Location = new Point(272, 133);
+            btnCategory.Name = "btnCategory";
+            btnCategory.Size = new Size(192, 63);
+            btnCategory.TabIndex = 1;
+            btnCategory.Text = "Quản lý danh mục";
+            btnCategory.UseVisualStyleBackColor = true;
+            btnCategory.Click += button1_Click;
             // 
             // btnProduct
             // 
-            btnProduct.Location = new Point(30, 100);
-            btnProduct.Margin = new Padding(3, 2, 3, 2);
+            btnProduct.Location = new Point(34, 133);
             btnProduct.Name = "btnProduct";
-            btnProduct.Size = new Size(168, 47);
+            btnProduct.Size = new Size(192, 63);
             btnProduct.TabIndex = 0;
             btnProduct.Text = "Quản lý sản phẩm";
             btnProduct.UseVisualStyleBackColor = true;
             btnProduct.Click += btnProduct_Click;
             // 
+            // btnDiscount
+            // 
+            btnDiscount.Location = new Point(514, 133);
+            btnDiscount.Name = "btnDiscount";
+            btnDiscount.Size = new Size(192, 63);
+            btnDiscount.TabIndex = 3;
+            btnDiscount.Text = "Quản lý mã giảm giá";
+            btnDiscount.UseVisualStyleBackColor = true;
+            btnDiscount.Click += btnDiscount_Click;
+            // 
             // AllFunction
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AllFunction";
             Text = "AllFunction";
             panel1.ResumeLayout(false);
@@ -97,7 +105,8 @@
 
         private Panel panel1;
         private Button btnProduct;
-        private Button button1;
+        private Button btnCategory;
         private Label label1;
+        private Button btnDiscount;
     }
 }

@@ -30,5 +30,12 @@ namespace WinFormsAppzz
             categoryForm.Show();
             this.Hide();
         }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            DiscountForm discountForm = new DiscountForm();
+            discountForm.Show();
+            this.Hide();
+        }
     }
 }

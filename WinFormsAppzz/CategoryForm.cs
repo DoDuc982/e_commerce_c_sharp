@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using WinFormsAppzz.NewFolder;
 
 namespace WinFormsAppzz
 {
     public partial class CategoryForm : Form
     {
         private DataTable tblCL;
+        private Category selectedCategory;
 
         public CategoryForm()
         {
@@ -146,18 +148,32 @@ namespace WinFormsAppzz
         {
             findDataGridView();
         }
-        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dgvCategoryCellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-
-                DataGridViewRow row = dgvCategory.Rows[e.RowIndex];
-
-                txtId.Text = row.Cells["id"].Value.ToString();
-                txtName.Text = row.Cells["name"].Value.ToString();
-                txtContent.Text = row.Cells["content"].Value.ToString();
-            }
+            retrieveCurrentRow(e);
         }
 
+        private void dgvCategoryRowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            retrieveCurrentRow(e);
+        }
+        private void retrieveCurrentRow(DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow dr = dgvCategory.Rows[e.RowIndex];
+            selectedCategory = new Category();
+            selectedCategory.id = long.Parse(dr.Cells["id"].Value.ToString());
+            selectedCategory.name = dr.Cells["name"].Value.ToString();
+            selectedCategory.content = dr.Cells["content"].Value.ToString();
+
+            txtId.Text = selectedCategory.id.ToString();
+            txtName.Text = selectedCategory.name;
+            txtContent.Text = selectedCategory.content;
+        }
+
+        private void load(object sender, EventArgs e)
+        {
+            loadDataGridView();
+        }
     }
 }

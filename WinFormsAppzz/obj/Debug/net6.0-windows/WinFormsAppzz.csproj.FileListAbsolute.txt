@@ -25,3 +25,4 @@ C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.AllFunction.resources
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.ProductForm.resources
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.CategoryForm.resources
+C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.DiscountForm.resources
