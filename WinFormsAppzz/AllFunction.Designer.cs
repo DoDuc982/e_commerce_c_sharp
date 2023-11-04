@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnOrder = new Button();
+            btnCustomer = new Button();
+            btnDiscount = new Button();
             label1 = new Label();
             btnCategory = new Button();
             btnProduct = new Button();
-            btnDiscount = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnOrder);
+            panel1.Controls.Add(btnCustomer);
             panel1.Controls.Add(btnDiscount);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnCategory);
@@ -47,6 +51,36 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 451);
             panel1.TabIndex = 0;
+            // 
+            // btnOrder
+            // 
+            btnOrder.Location = new Point(398, 240);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(192, 63);
+            btnOrder.TabIndex = 5;
+            btnOrder.Text = "Quản lý hóa đơn";
+            btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
+            // 
+            // btnCustomer
+            // 
+            btnCustomer.Location = new Point(152, 240);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(192, 63);
+            btnCustomer.TabIndex = 4;
+            btnCustomer.Text = "Quản lý người dùng";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
+            // 
+            // btnDiscount
+            // 
+            btnDiscount.Location = new Point(514, 133);
+            btnDiscount.Name = "btnDiscount";
+            btnDiscount.Size = new Size(192, 63);
+            btnDiscount.TabIndex = 3;
+            btnDiscount.Text = "Quản lý mã giảm giá";
+            btnDiscount.UseVisualStyleBackColor = true;
+            btnDiscount.Click += btnDiscount_Click;
             // 
             // label1
             // 
@@ -78,16 +112,6 @@
             btnProduct.UseVisualStyleBackColor = true;
             btnProduct.Click += btnProduct_Click;
             // 
-            // btnDiscount
-            // 
-            btnDiscount.Location = new Point(514, 133);
-            btnDiscount.Name = "btnDiscount";
-            btnDiscount.Size = new Size(192, 63);
-            btnDiscount.TabIndex = 3;
-            btnDiscount.Text = "Quản lý mã giảm giá";
-            btnDiscount.UseVisualStyleBackColor = true;
-            btnDiscount.Click += btnDiscount_Click;
-            // 
             // AllFunction
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -108,5 +132,7 @@
         private Button btnCategory;
         private Label label1;
         private Button btnDiscount;
+        private Button btnOrder;
+        private Button btnCustomer;
     }
 }

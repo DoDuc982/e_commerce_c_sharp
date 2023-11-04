@@ -37,5 +37,19 @@ namespace WinFormsAppzz
             discountForm.Show();
             this.Hide();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerForm customerForm = new CustomerForm();
+            customerForm.Show();
+            this.Hide();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm();
+            orderForm.Show();
+            this.Hide();
+        }
     }
 }
