@@ -15,7 +15,7 @@ namespace WinFormsAppzz.NewFolder
         public string? password { get; set; }
         public string? phoneNumber { get; set; }
         public int? role { get; set; }
-        public byte[]? sex { get; set; }
+        public int? sex { get; set; }
         public string? username { get; set; }
     }
 }
