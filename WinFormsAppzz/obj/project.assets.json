@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WinFormsAppzz\\WinFormsAppzz\\WinFormsAppzz.csproj",
+      "projectUniqueName": "D:\\github\\e_commerce_c_sharp\\WinFormsAppzz\\WinFormsAppzz.csproj",
       "projectName": "WinFormsAppzz",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\WinFormsAppzz\\WinFormsAppzz\\WinFormsAppzz.csproj",
+      "projectPath": "D:\\github\\e_commerce_c_sharp\\WinFormsAppzz\\WinFormsAppzz.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\WinFormsAppzz\\WinFormsAppzz\\obj\\",
+      "outputPath": "D:\\github\\e_commerce_c_sharp\\WinFormsAppzz\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
