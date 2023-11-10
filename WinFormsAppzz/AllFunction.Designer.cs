@@ -35,11 +35,13 @@
             label1 = new Label();
             btnCategory = new Button();
             btnProduct = new Button();
+            btnSignOut = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnSignOut);
             panel1.Controls.Add(btnOrder);
             panel1.Controls.Add(btnCustomer);
             panel1.Controls.Add(btnDiscount);
@@ -112,6 +114,16 @@
             btnProduct.UseVisualStyleBackColor = true;
             btnProduct.Click += btnProduct_Click;
             // 
+            // btnSignOut
+            // 
+            btnSignOut.Location = new Point(642, 374);
+            btnSignOut.Name = "btnSignOut";
+            btnSignOut.Size = new Size(146, 56);
+            btnSignOut.TabIndex = 6;
+            btnSignOut.Text = "Đăng xuất";
+            btnSignOut.UseVisualStyleBackColor = true;
+            btnSignOut.Click += btnSignOut_Click;
+            // 
             // AllFunction
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -134,5 +146,6 @@
         private Button btnDiscount;
         private Button btnOrder;
         private Button btnCustomer;
+        private Button btnSignOut;
     }
 }

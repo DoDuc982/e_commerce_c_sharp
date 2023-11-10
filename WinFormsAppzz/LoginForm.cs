@@ -2,6 +2,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace WinFormsAppzz
 {
@@ -16,15 +17,16 @@ namespace WinFormsAppzz
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+
+            Functions.Function.Connect();
             String username, password;
             username = txtUsername.Text;
             password = txtPassword.Text;
             try
             {
                 String query = "SELECT username, password, role, id FROM customer WHERE username = '" + txtUsername.Text + "' AND password = '" + txtPassword.Text + "'";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                dt = Functions.Function.GetDataToTable(query);
                 if (dt.Rows.Count > 0)
                 {
                     int role = Convert.ToInt32(dt.Rows[0]["role"]);
@@ -63,6 +65,13 @@ namespace WinFormsAppzz
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            SignUpForm signUpForm = new SignUpForm();
+            signUpForm.Show();
+            this.Hide();
         }
     }
 }

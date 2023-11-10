@@ -28,5 +28,8 @@
     <Compile Update="Nineshop.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

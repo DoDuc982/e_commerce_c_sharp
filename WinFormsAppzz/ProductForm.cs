@@ -136,9 +136,9 @@ namespace WinFormsAppzz
             dgvProduct.AllowUserToAddRows = false;
             dgvProduct.EditMode = DataGridViewEditMode.EditProgrammatically;
 
-            tblCategory = Functions.Function.GetDataToTable("SELECT id, content FROM category");
+            tblCategory = Functions.Function.GetDataToTable("SELECT id, name FROM category");
             cbCategory.DataSource = tblCategory;
-            cbCategory.DisplayMember = "content";
+            cbCategory.DisplayMember = "name";
             cbCategory.ValueMember = "id";
         }
         private void findDataGridView()

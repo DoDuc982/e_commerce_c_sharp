@@ -51,5 +51,13 @@ namespace WinFormsAppzz
             orderForm.Show();
             this.Hide();
         }
+
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
+
+        }
     }
 }
