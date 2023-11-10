@@ -21,15 +21,26 @@ namespace WinFormsAppzz
             password = txtPassword.Text;
             try
             {
-                String query = "SELECT * FROM customer WHERE username = '" + txtUsername.Text + "' AND password = '" + txtPassword.Text + "'";
+                String query = "SELECT username, password, role, id FROM customer WHERE username = '" + txtUsername.Text + "' AND password = '" + txtPassword.Text + "'";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    AllFunction allFunctionForm = new AllFunction();
-                    allFunctionForm.Show();
-                    this.Hide();
+                    int role = Convert.ToInt32(dt.Rows[0]["role"]);
+                    Const.customerId = Convert.ToInt32(dt.Rows[0]["id"]);
+                    if (role == 1)
+                    {
+                        AllFunction allFunctionForm = new AllFunction();
+                        allFunctionForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        Nineshop nineshop = new Nineshop();
+                        nineshop.Show();
+                        this.Hide();
+                    }
 
                 }
                 else

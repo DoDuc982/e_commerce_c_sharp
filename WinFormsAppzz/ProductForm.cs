@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using WinFormsAppzz.Functions;
-using WinFormsAppzz.NewFolder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsAppzz

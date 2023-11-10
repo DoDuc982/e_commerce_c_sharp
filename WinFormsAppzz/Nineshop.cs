@@ -10,16 +10,24 @@ using System.Windows.Forms;
 
 namespace WinFormsAppzz
 {
-    public partial class OrderForm : Form
+    public partial class Nineshop : Form
     {
-        public OrderForm()
+        public Nineshop()
         {
             InitializeComponent();
         }
 
-        private void OrderForm_Load(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            CartForm cartForm = new CartForm();
+            cartForm.Show();
+            this.Hide();
+        }
+
     }
 }

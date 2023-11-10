@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using WinFormsAppzz.NewFolder;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace WinFormsAppzz

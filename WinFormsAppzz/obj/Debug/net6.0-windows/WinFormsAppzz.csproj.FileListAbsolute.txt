@@ -28,3 +28,5 @@ C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.DiscountForm.resources
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.CustomerForm.resources
 C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.OrderForm.resources
+C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.Nineshop.resources
+C:\Users\Admin\source\repos\WinFormsAppzz\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.CartForm.resources
