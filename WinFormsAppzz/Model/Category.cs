@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsAppzz.NewFolder
+namespace WinFormsAppzz
 {
     internal class Category
     {
@@ -16,7 +16,7 @@ namespace WinFormsAppzz.NewFolder
         public string? content { get; set; }
 
         public DateTime? createdOn { get; set; }
-        
+
         public DateTime updatedOn { get; set; }
 
         public List<Product> products { get; set; }

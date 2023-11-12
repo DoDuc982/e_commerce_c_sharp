@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsAppzz.NewFolder
+namespace WinFormsAppzz
 {
     internal class Customer
     {

@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsAppzz.NewFolder
+namespace WinFormsAppzz
 {
     internal class Product
     {
         public long id { get; set; }
-       
+
         public string? name { get; set; }
 
         [Required(ErrorMessage = "Price is required")]
@@ -18,7 +18,7 @@ namespace WinFormsAppzz.NewFolder
         public long? price { get; set; }
 
         public long? discountPrice { get; set; }
-        
+
         public string? imageUrl { get; set; }
 
         public int? quantity { get; set; }
