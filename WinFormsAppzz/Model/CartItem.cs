@@ -13,7 +13,5 @@ namespace WinFormsAppzz.NewFolder
 
         public int quantity { get; set; }
 
-        public User? User { get; set; }
-        public Product? Product { get; set; }
     }
 }

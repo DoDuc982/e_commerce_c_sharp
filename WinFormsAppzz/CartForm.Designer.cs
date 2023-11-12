@@ -119,6 +119,8 @@
             dgvProduct.RowTemplate.Height = 29;
             dgvProduct.Size = new Size(842, 345);
             dgvProduct.TabIndex = 4;
+            dgvProduct.CellContentClick += dgvProduct_CellContentClick;
+            dgvProduct.RowEnter += dgvProduct_RowEnter;
             // 
             // CartForm
             // 
@@ -129,6 +131,7 @@
             Controls.Add(panel1);
             Name = "CartForm";
             Text = "Cart";
+            Load += CartForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProduct).EndInit();

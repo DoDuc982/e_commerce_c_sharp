@@ -9,11 +9,12 @@ namespace WinFormsAppzz
 {
     internal class CartItem
     {
+
         public long Id { get; set; }
 
         public int quantity { get; set; }
 
-        public User? User { get; set; }
-        public Product? Product { get; set; }
+        public int userId { get; set; }
+        public int productId { get; set; }
     }
 }

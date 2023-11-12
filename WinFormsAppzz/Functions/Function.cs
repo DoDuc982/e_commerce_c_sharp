@@ -18,8 +18,7 @@ namespace WinFormsAppzz.Functions
         {
             Con = new SqlConnection(@"Data Source=LAPTOP-CNFJ930U;Initial Catalog=e_commerce;Integrated Security=True"); 
             Con.Open();       
-            if (Con.State == ConnectionState.Open) MessageBox.Show("Kết nối thành công");
-            else MessageBox.Show("Không thể kết nối với dữ liệu");
+            if (!(Con.State == ConnectionState.Open)) MessageBox.Show("Không thể kết nối với dữ liệu");
 
         }
         public static void Disconnect()
@@ -38,16 +37,6 @@ namespace WinFormsAppzz.Functions
             dap.SelectCommand.Connection = Function.Con;
             dap.SelectCommand.CommandText = sql;
             DataTable table = new DataTable();
-            dap.Fill(table);
-            return table;
-        }
-        public static DataSet GetDataToSet(string sql)
-        {
-            SqlDataAdapter dap = new SqlDataAdapter();
-            dap.SelectCommand = new SqlCommand();
-            dap.SelectCommand.Connection = Function.Con;
-            dap.SelectCommand.CommandText = sql;
-            DataSet table = new DataSet();
             dap.Fill(table);
             return table;
         }
