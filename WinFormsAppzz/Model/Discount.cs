@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Discount
+    public class Discount
     {
         public long Id { get; set; }
         public string Code { get; set; }

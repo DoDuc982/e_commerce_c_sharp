@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Address
+    public class Address
     {
         public long id { get; set; }
 
@@ -20,6 +20,6 @@ namespace WinFormsAppzz
 
         public string? province { get; set; }
 
-        public User? user { get; set; }
+        public int userId { get; set; }
     }
 }

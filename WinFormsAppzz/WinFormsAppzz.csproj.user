@@ -22,6 +22,9 @@
     <Compile Update="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="OrderInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>

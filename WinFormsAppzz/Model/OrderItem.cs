@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class OrderItem
+    public class OrderItem
     {
         public long id { get; set; }
         public string? name { get; set; }
@@ -17,6 +17,6 @@ namespace WinFormsAppzz
         public DateTime? createdOn { get; set; }
         public DateTime? updatedOn { get; set; }
 
-        public Order? order { get; set; }
+        public int? orderId { get; set; }
     }
 }

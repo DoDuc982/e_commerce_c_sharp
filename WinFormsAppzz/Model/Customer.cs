@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Customer
+    public class Customer
     {
         public long id { get; set; }
         public DateTime? createdOn { get; set; }

@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Product
+    public class Product
     {
         public long id { get; set; }
 
         public string? name { get; set; }
-
-        [Required(ErrorMessage = "Price is required")]
-        [Range(0, long.MaxValue, ErrorMessage = "Price must be greater than or equal to 0")]
         public long? price { get; set; }
 
         public long? discountPrice { get; set; }
@@ -30,6 +27,6 @@ namespace WinFormsAppzz
         public DateTime? createdOn { get; set; }
         public DateTime? updatedOn { get; set; }
 
-        public Category? category { get; set; }
+        public int categoryId { get; set; }
     }
 }

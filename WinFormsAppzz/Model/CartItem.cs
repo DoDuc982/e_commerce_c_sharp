@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class CartItem
+    public class CartItem
     {
 
         public long Id { get; set; }

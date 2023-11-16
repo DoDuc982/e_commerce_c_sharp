@@ -9,5 +9,6 @@ namespace WinFormsAppzz
     public class Const
     {
         public static int customerId;
+        public static int orderId;
     }
 }

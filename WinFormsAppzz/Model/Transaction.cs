@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Transaction
+    public class Transaction
     {
         public long Id { get; set; }
         public int? TransStatus { get; set; }

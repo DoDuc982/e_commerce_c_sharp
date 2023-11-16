@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsAppzz
 {
-    internal class Category
+    public class Category
     {
         public long id { get; set; }
 
@@ -19,6 +19,6 @@ namespace WinFormsAppzz
 
         public DateTime updatedOn { get; set; }
 
-        public List<Product> products { get; set; }
+        public List<int> products { get; set; }
     }
 }
