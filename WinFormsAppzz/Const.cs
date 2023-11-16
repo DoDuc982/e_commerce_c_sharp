@@ -10,5 +10,7 @@ namespace WinFormsAppzz
     {
         public static int customerId;
         public static int orderId;
+        public static Order order = new Order();
+
     }
 }

@@ -12,7 +12,6 @@ namespace WinFormsAppzz
 {
     public partial class OrderForm : Form
     {
-        public static Order order;
         public OrderForm()
         {
             InitializeComponent();
@@ -32,16 +31,15 @@ namespace WinFormsAppzz
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            order = new Order();
-            order.firstname = txtFirstname.Text;
-            order.lastname = txtLastname.Text;
-            order.mobile = txtPhoneNumber.Text;
-            order.email = txtEmail.Text;
-            order.discount = txtDiscount.Text;
-            order.address = txtAddress.Text;
-            order.district = txtDistrict.Text;
-            order.province = txtProvince.Text;
-            order.city = txtCity.Text;
+            Const.order.firstname = txtFirstname.Text;
+            Const.order.lastname = txtLastname.Text;
+            Const.order.mobile = txtPhoneNumber.Text;
+            Const.order.email = txtEmail.Text;
+            Const.order.discount = txtDiscount.Text;
+            Const.order.address = txtAddress.Text;
+            Const.order.district = txtDistrict.Text;
+            Const.order.province = txtProvince.Text;
+            Const.order.city = txtCity.Text;
             OrderInfoForm orderInfoForm = new OrderInfoForm();
             orderInfoForm.Show();
             this.Hide();

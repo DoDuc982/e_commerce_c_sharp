@@ -59,5 +59,12 @@ namespace WinFormsAppzz
             this.Hide();
 
         }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            Orders orders = new Orders();
+            orders.Show();
+            this.Hide();
+        }
     }
 }

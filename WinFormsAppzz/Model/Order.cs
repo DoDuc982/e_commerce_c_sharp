@@ -12,11 +12,11 @@ namespace WinFormsAppzz
     {
 
         public long id { get; set; }
-        public long subTotal { get; set; } = 0;
-        public long shippingPrice { get; set; } = 0;
-        public long total { get; set; } = 0;
+        public decimal subTotal { get; set; } = 0;
+        public decimal shippingPrice { get; set; } = 15000;
+        public decimal total { get; set; } = 0;
         public string discount { get; set; }
-        public long grandTotal { get; set; } = 0;
+        public decimal grandTotal { get; set; } = 0;
         public string? firstname { get; set; }
 
         public string? lastname { get; set; }

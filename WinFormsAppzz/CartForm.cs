@@ -16,6 +16,7 @@ namespace WinFormsAppzz
     {
         private DataTable dt;
         private CartItem ci;
+        
         public CartForm()
         {
             InitializeComponent();
@@ -56,6 +57,14 @@ namespace WinFormsAppzz
             dgvProduct.Columns[6].HeaderText = "ID sản phẩm";
             dgvProduct.AllowUserToAddRows = false;
             dgvProduct.EditMode = DataGridViewEditMode.EditProgrammatically;
+            decimal sum = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                decimal productPrice = Convert.ToDecimal(row["discount_price"] != DBNull.Value ? row["discount_price"] : row["price"]);
+                int quantity = Convert.ToInt32(row["quantity"]);
+                sum += productPrice * quantity;
+            }
+            Const.order.subTotal = sum;
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -72,9 +81,8 @@ namespace WinFormsAppzz
         {
             DataGridViewRow dr = dgvProduct.Rows[e.RowIndex];
             ci = new CartItem();
-            ci.Id = Convert.ToInt32(dr.Cells[0].Value); // Chắc chắn rằng index 0 chứa cart item ID
-            ci.productId = Convert.ToInt32(dr.Cells[6].Value); // Chắc chắn rằng index 6 chứa product ID
-            ci.quantity = Convert.ToInt32(dr.Cells[4].Value); // Chắc chắn rằng index 4 chứa số lượng
+            ci.Id = Convert.ToInt32(dr.Cells[0].Value); 
+            ci.productId = Convert.ToInt32(dr.Cells[6].Value); 
             ci.userId = Const.customerId;
             txtQuantity.Text = ci.quantity.ToString();
 

@@ -63,3 +63,6 @@ D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppz
 D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.genruntimeconfig.cache
 D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\ref\WinFormsAppzz.dll
 D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.SignUpForm.resources
+D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.OrderInfoForm.resources
+D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.Orders.resources
+D:\github\e_commerce_c_sharp\WinFormsAppzz\obj\Debug\net6.0-windows\WinFormsAppzz.OrderItemForm.resources
