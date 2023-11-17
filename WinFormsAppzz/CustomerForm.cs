@@ -45,7 +45,7 @@ namespace WinFormsAppzz
                     {
                         sex = 1;
                     }
-                    sql = "INSERT INTO customer(name, email, username, password, phone_number, role, sex, created_on) VALUES ('" + txtName.Text + "','" + txtEmail.Text + "', '" + txtUsername.Text + "', '" + txtPassword.Text + "','" + txtPhoneNum.Text + "', " + role + ", " + sex + ",'" + createdOn +"')";
+                    sql = "INSERT INTO customer(name, email, username, password, phone_number, role, sex, created_on) VALUES ('" + txtName.Text + "','" + txtEmail.Text + "', '" + txtUsername.Text + "', '" + txtPassword.Text + "','" + txtPhoneNum.Text + "', " + role + ", " + sex + ",'" + createdOn + "')";
                     Functions.Function.RunSQL(sql);
                     MessageBox.Show("Thêm khách hàng thành công");
                     loadDataGridView();
@@ -150,7 +150,7 @@ namespace WinFormsAppzz
                 dgvCustomer.EditMode = DataGridViewEditMode.EditProgrammatically;
             }
         }
-            private void btnBack_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             Functions.Function.Disconnect();
             AllFunction allFunctionForm = new AllFunction();
@@ -215,10 +215,11 @@ namespace WinFormsAppzz
             selectedCustomer.sex = int.Parse(dr.Cells["sex"].Value.ToString());
             selectedCustomer.role = int.Parse(dr.Cells["role"].Value.ToString());
 
-            if(selectedCustomer.role == 1)
+            if (selectedCustomer.role == 1)
             {
                 cbRole.Text = "ADMIN";
-            } else
+            }
+            else
             {
                 cbRole.Text = "USER";
             }

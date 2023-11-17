@@ -35,6 +35,7 @@ namespace WinFormsAppzz
             OrderForm orderForm = new OrderForm();
             orderForm.Show();
             this.Hide();
+            Functions.Function.Disconnect();
         }
 
         private void CartForm_Load(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace WinFormsAppzz
         private void loadDataGridView()
         {
             string sql;
-            sql = "  SELECT c.id, p.name, p.price, p.discount_price, c.quantity, ca.content, p.id FROM cart_item c inner join (product p inner join category ca on p.category_id = ca.id)  on c.product_id = p.id";
+            sql = "SELECT c.id, p.name, p.price, p.discount_price, c.quantity, ca.content, p.id FROM cart_item c inner join (product p inner join category ca on p.category_id = ca.id)  on c.product_id = p.id";
             dt = Functions.Function.GetDataToTable(sql);
             dgvProduct.DataSource = dt;
             dgvProduct.Columns[0].HeaderText = "Id";
@@ -113,17 +114,24 @@ namespace WinFormsAppzz
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string sql;
-            sql = "DELETE FROM cart_item where id = " + ci.Id;
-            try
+            if (txtQuantity.Text == "")
             {
-                Functions.Function.RunSQL(sql);
-                MessageBox.Show("Xóa người dùng thành công");
-                loadDataGridView();
+                MessageBox.Show("Thiếu thông tin về số lượng!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                string sql;
+                sql = "DELETE FROM cart_item where id = " + ci.Id;
+                try
+                {
+                    Functions.Function.RunSQL(sql);
+                    MessageBox.Show("Xóa người dùng thành công");
+                    loadDataGridView();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnBack = new Button();
             label2 = new Label();
             txtId = new TextBox();
             btnSearchInfo = new Button();
             btnSearch = new Button();
             label1 = new Label();
             dgvOrders = new DataGridView();
-            btnBack = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
@@ -54,10 +54,20 @@
             panel1.Size = new Size(1158, 79);
             panel1.TabIndex = 0;
             // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(959, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(123, 41);
+            btnBack.TabIndex = 7;
+            btnBack.Text = "Quay lại";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(403, 29);
+            label2.Location = new Point(278, 29);
             label2.Name = "label2";
             label2.Size = new Size(78, 15);
             label2.TabIndex = 6;
@@ -65,14 +75,14 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(487, 26);
+            txtId.Location = new Point(362, 26);
             txtId.Name = "txtId";
             txtId.Size = new Size(100, 23);
             txtId.TabIndex = 5;
             // 
             // btnSearchInfo
             // 
-            btnSearchInfo.Location = new Point(800, 12);
+            btnSearchInfo.Location = new Point(675, 12);
             btnSearchInfo.Name = "btnSearchInfo";
             btnSearchInfo.Size = new Size(126, 44);
             btnSearchInfo.TabIndex = 4;
@@ -82,7 +92,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(637, 12);
+            btnSearch.Location = new Point(512, 12);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(126, 44);
             btnSearch.TabIndex = 3;
@@ -111,16 +121,6 @@
             dgvOrders.TabIndex = 1;
             dgvOrders.CellContentClick += dgvOrders_CellContentClick;
             dgvOrders.RowEnter += dgvOrders_RowEnter;
-            // 
-            // btnBack
-            // 
-            btnBack.Location = new Point(943, 12);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(123, 41);
-            btnBack.TabIndex = 7;
-            btnBack.Text = "Quay lại";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
             // 
             // Orders
             // 

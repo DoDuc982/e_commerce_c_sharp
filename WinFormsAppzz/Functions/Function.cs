@@ -57,14 +57,5 @@ namespace WinFormsAppzz.Functions
             cmd.Dispose();
             cmd = null;
         }
-        public static object GetSingleValue(string query)
-        {
-            {
-                using (SqlCommand command = new SqlCommand(query, Con))
-                {
-                    return command.ExecuteScalar();
-                }
-            }
-        }
     }
 }

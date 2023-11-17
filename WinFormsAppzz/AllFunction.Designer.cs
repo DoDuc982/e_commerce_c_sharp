@@ -31,7 +31,6 @@
             panel1 = new Panel();
             btnOrders = new Button();
             btnSignOut = new Button();
-            btnOrder = new Button();
             btnCustomer = new Button();
             btnDiscount = new Button();
             label1 = new Label();
@@ -44,7 +43,6 @@
             // 
             panel1.Controls.Add(btnOrders);
             panel1.Controls.Add(btnSignOut);
-            panel1.Controls.Add(btnOrder);
             panel1.Controls.Add(btnCustomer);
             panel1.Controls.Add(btnDiscount);
             panel1.Controls.Add(label1);
@@ -59,7 +57,7 @@
             // 
             // btnOrders
             // 
-            btnOrders.Location = new Point(238, 261);
+            btnOrders.Location = new Point(342, 180);
             btnOrders.Margin = new Padding(3, 2, 3, 2);
             btnOrders.Name = "btnOrders";
             btnOrders.Size = new Size(168, 47);
@@ -78,17 +76,6 @@
             btnSignOut.Text = "Đăng xuất";
             btnSignOut.UseVisualStyleBackColor = true;
             btnSignOut.Click += btnSignOut_Click;
-            // 
-            // btnOrder
-            // 
-            btnOrder.Location = new Point(348, 180);
-            btnOrder.Margin = new Padding(3, 2, 3, 2);
-            btnOrder.Name = "btnOrder";
-            btnOrder.Size = new Size(168, 47);
-            btnOrder.TabIndex = 5;
-            btnOrder.Text = "Quản lý hóa đơn";
-            btnOrder.UseVisualStyleBackColor = true;
-            btnOrder.Click += btnOrder_Click;
             // 
             // btnCustomer
             // 
@@ -165,7 +152,6 @@
         private Button btnCategory;
         private Label label1;
         private Button btnDiscount;
-        private Button btnOrder;
         private Button btnSignOut;
         private Button btnOrders;
         private Button btnCustomer;

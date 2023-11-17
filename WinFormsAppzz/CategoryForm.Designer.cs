@@ -43,6 +43,7 @@
             btnEdit = new Button();
             btnAdd = new Button();
             dgvCategory = new DataGridView();
+            label7 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCategory).BeginInit();
@@ -52,9 +53,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(14, 12);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(339, 32);
+            label1.Size = new Size(263, 25);
             label1.TabIndex = 1;
             label1.Text = "Quản lý danh mục sản phẩm";
             // 
@@ -67,47 +68,45 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(914, 151);
+            panel1.Size = new Size(800, 113);
             panel1.TabIndex = 2;
             // 
             // txtContent
             // 
-            txtContent.Location = new Point(511, 75);
-            txtContent.Margin = new Padding(3, 4, 3, 4);
+            txtContent.Location = new Point(447, 56);
             txtContent.Name = "txtContent";
-            txtContent.Size = new Size(114, 27);
+            txtContent.Size = new Size(100, 23);
             txtContent.TabIndex = 9;
             // 
             // txtName
             // 
-            txtName.Location = new Point(207, 75);
-            txtName.Margin = new Padding(3, 4, 3, 4);
+            txtName.Location = new Point(181, 56);
             txtName.Name = "txtName";
-            txtName.Size = new Size(114, 27);
+            txtName.Size = new Size(100, 23);
             txtName.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(429, 79);
+            label4.Location = new Point(375, 59);
             label4.Name = "label4";
-            label4.Size = new Size(71, 20);
+            label4.Size = new Size(57, 15);
             label4.TabIndex = 8;
             label4.Text = "Nội dung";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(96, 79);
+            label3.Location = new Point(84, 59);
             label3.Name = "label3";
-            label3.Size = new Size(101, 20);
+            label3.Size = new Size(82, 15);
             label3.TabIndex = 7;
             label3.Text = "Tên danh mục";
             // 
             // panel2
             // 
+            panel2.Controls.Add(label7);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(txtId);
             panel2.Controls.Add(btnSearch);
@@ -116,35 +115,32 @@
             panel2.Controls.Add(btnEdit);
             panel2.Controls.Add(btnAdd);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 474);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(0, 368);
             panel2.Name = "panel2";
-            panel2.Size = new Size(914, 133);
+            panel2.Size = new Size(800, 87);
             panel2.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(341, 61);
+            label2.Location = new Point(298, 31);
             label2.Name = "label2";
-            label2.Size = new Size(99, 20);
+            label2.Size = new Size(81, 15);
             label2.TabIndex = 6;
             label2.Text = "Mã danh mục";
             // 
             // txtId
             // 
-            txtId.Location = new Point(440, 56);
-            txtId.Margin = new Padding(3, 4, 3, 4);
+            txtId.Location = new Point(385, 27);
             txtId.Name = "txtId";
-            txtId.Size = new Size(114, 27);
+            txtId.Size = new Size(100, 23);
             txtId.TabIndex = 5;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(574, 56);
-            btnSearch.Margin = new Padding(3, 4, 3, 4);
+            btnSearch.Location = new Point(502, 27);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(86, 31);
+            btnSearch.Size = new Size(75, 23);
             btnSearch.TabIndex = 4;
             btnSearch.Text = "Tìm kiếm";
             btnSearch.UseVisualStyleBackColor = true;
@@ -152,10 +148,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(685, 56);
-            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Location = new Point(599, 27);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(86, 31);
+            btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 3;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
@@ -163,10 +158,9 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(797, 56);
-            btnBack.Margin = new Padding(3, 4, 3, 4);
+            btnBack.Location = new Point(697, 27);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(86, 31);
+            btnBack.Size = new Size(75, 23);
             btnBack.TabIndex = 2;
             btnBack.Text = "Quay lại";
             btnBack.UseVisualStyleBackColor = true;
@@ -174,10 +168,9 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(207, 41);
-            btnEdit.Margin = new Padding(3, 4, 3, 4);
+            btnEdit.Location = new Point(181, 16);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(119, 59);
+            btnEdit.Size = new Size(104, 44);
             btnEdit.TabIndex = 1;
             btnEdit.Text = "Sửa";
             btnEdit.UseVisualStyleBackColor = true;
@@ -185,10 +178,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(41, 41);
-            btnAdd.Margin = new Padding(3, 4, 3, 4);
+            btnAdd.Location = new Point(36, 16);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(119, 59);
+            btnAdd.Size = new Size(104, 44);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
@@ -198,25 +190,33 @@
             // 
             dgvCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategory.Dock = DockStyle.Fill;
-            dgvCategory.Location = new Point(0, 151);
-            dgvCategory.Margin = new Padding(3, 4, 3, 4);
+            dgvCategory.Location = new Point(0, 113);
             dgvCategory.Name = "dgvCategory";
             dgvCategory.RowHeadersWidth = 51;
             dgvCategory.RowTemplate.Height = 25;
-            dgvCategory.Size = new Size(914, 323);
+            dgvCategory.Size = new Size(800, 255);
             dgvCategory.TabIndex = 4;
             dgvCategory.CellContentClick += dgvCategoryCellContentClick;
             dgvCategory.RowEnter += dgvCategoryRowEnter;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 8F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(51, 63);
+            label7.Name = "label7";
+            label7.Size = new Size(224, 13);
+            label7.TabIndex = 15;
+            label7.Text = "Cần cung cấp đủ các trường khi sửa thông tin";
+            // 
             // CategoryForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 607);
+            ClientSize = new Size(800, 455);
             Controls.Add(dgvCategory);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CategoryForm";
             Text = "Category Form";
             Load += load;
@@ -245,5 +245,6 @@
         private TextBox txtName;
         private Label label4;
         private Label label3;
+        private Label label7;
     }
 }

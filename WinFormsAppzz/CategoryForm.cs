@@ -88,6 +88,25 @@ namespace WinFormsAppzz
                 sql = "DELETE FROM category where id = " + id;
                 try
                 {
+                    string sql3 = "SELECT distinct product_id FROM cart_item c";
+                    DataTable dtProductIds = Functions.Function.GetDataToTable(sql3);
+                    foreach (DataRow row in dtProductIds.Rows)
+                    {
+                        int productId = Convert.ToInt32(row["product_id"]);
+                        string sql4 = "SELECT id FROM product WHERE category_id = " + id;
+                        DataTable dtProduct = Functions.Function.GetDataToTable(sql4);
+                        foreach (DataRow rowId in dtProduct.Rows)
+                        {
+                            int pId = Convert.ToInt32(rowId["id"]);
+                            if (pId == productId)
+                            {
+                                string sql2 = "DELETE FROM cart_item WHERE product_id = " + pId;
+                                string sql5 = "DELETE FROM product WHERE id = " + pId + " AND category_id = " + id;
+                                Functions.Function.RunSQL(sql2);
+                                Functions.Function.RunSQL(sql5);
+                            }
+                        }
+                    }
                     Functions.Function.RunSQL(sql);
                     MessageBox.Show("Xóa danh mục sản phẩm thành công");
                     loadDataGridView();

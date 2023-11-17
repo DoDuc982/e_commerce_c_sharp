@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsAppzz.Functions;
 
 namespace WinFormsAppzz
 {
@@ -22,6 +23,7 @@ namespace WinFormsAppzz
             Orders loginForm = new Orders();
             loginForm.Show();
             this.Hide();
+            Functions.Function.Disconnect();
         }
 
         private void OrderItemForm_Load(object sender, EventArgs e)

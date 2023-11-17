@@ -110,6 +110,8 @@ namespace WinFormsAppzz
             AllFunction loginForm = new AllFunction();
             loginForm.Show();
             this.Hide();
+            Functions.Function.Disconnect();
         }
+
     }
 }

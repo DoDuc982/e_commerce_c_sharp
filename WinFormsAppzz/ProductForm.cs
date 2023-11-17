@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,7 +42,7 @@ namespace WinFormsAppzz
 
                 try
                 {
-                    string sql = "INSERT INTO product(name, price, image_url, content, quantity, created_on) VALUES ('" + name + "', " + price + ",'" + imageUrl + "','" + content + "'," + quantity + ",'" + createdOn + "')";
+                    string sql = "INSERT INTO product(name, price, image_url, content, quantity, created_on, category_id) VALUES ('" + name + "', " + price + ",'" + imageUrl + "','" + content + "'," + quantity + ",'" + createdOn + "'," + cbCategory.SelectedValue + ")";
                     Functions.Function.RunSQL(sql);
                     MessageBox.Show("Thêm sản phẩm thành công");
                     loadDataGridView();
@@ -64,18 +65,24 @@ namespace WinFormsAppzz
             int soldQuantity = Convert.ToInt32(txtSoldQuantity.Text);
             decimal discountPrice = Convert.ToDecimal(txtDiscountPrice.Text);
             DateTime updated_on = DateTime.Now;
-
-            try
+            if (txtName.Text == "" || txtPrice.Text == "" || txtImage.Text == "" || txtContent.Text == "" || txtQuantity.Text == "" || txtSoldQuantity.Text == "" || txtDiscountPrice.Text == "")
             {
-                string sql = "update product set name= '" + name + "', price = " + price + ", image_url='" + imageUrl + "',content = '" + content + "',quantity = " + quantity + ",sold_quantity = " + soldQuantity + ",discount_price = " + discountPrice + ", updated_on = '" + updated_on + "', category_id = " + cbCategory.SelectedValue.ToString() + " where id = " + txtId.Text;
-                Functions.Function.RunSQL(sql);
-                MessageBox.Show("Sửa sản phẩm thành công");
-                loadDataGridView();
-                ResetValue();
+                MessageBox.Show("Thiếu thông tin sản phẩm");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    string sql = "update product set name= '" + name + "', price = " + price + ", image_url='" + imageUrl + "',content = '" + content + "',quantity = " + quantity + ",sold_quantity = " + soldQuantity + ",discount_price = " + discountPrice + ", updated_on = '" + updated_on + "', category_id = " + cbCategory.SelectedValue + " where id = " + txtId.Text;
+                    Functions.Function.RunSQL(sql);
+                    MessageBox.Show("Sửa sản phẩm thành công");
+                    loadDataGridView();
+                    ResetValue();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         private void btnDelete_Click(object sender, EventArgs e)
@@ -88,18 +95,30 @@ namespace WinFormsAppzz
             else
             {
                 int id = Convert.ToInt16(txtId.Text);
-                string sql;
-                sql = "DELETE FROM product where id = " + id;
-                try
+                string sql3 = "SELECT distinct product_id FROM cart_item c";
+                DataTable dtProductIds = Functions.Function.GetDataToTable(sql3);
+                foreach (DataRow row in dtProductIds.Rows)
                 {
-                    Functions.Function.RunSQL(sql);
-                    MessageBox.Show("Xóa sản phẩm thành công");
-                    loadDataGridView();
-                    ResetValue();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    int productId = Convert.ToInt32(row["product_id"]);
+                    if (productId == id)
+                    {
+                        try
+                        {
+                            string sql;
+                            sql = "DELETE FROM product WHERE id = " + id;
+                            string sql2 = "DELETE FROM cart_item WHERE product_id = " + id;
+                            Functions.Function.RunSQL(sql2);
+                            Functions.Function.RunSQL(sql);
+                            MessageBox.Show("Xóa sản phẩm thành công");
+                            loadDataGridView();
+                            ResetValue();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
                 }
             }
         }
@@ -206,7 +225,7 @@ namespace WinFormsAppzz
         {
             DataGridViewRow dr = dgvProduct.Rows[e.RowIndex];
             selectedProduct = new Product();
-            selectedProduct.id = long.Parse(dr.Cells["id"].Value.ToString());
+            selectedProduct.id = int.Parse(dr.Cells["id"].Value.ToString());
             selectedProduct.name = dr.Cells["name"].Value.ToString();
             selectedProduct.imageUrl = dr.Cells["image_url"].Value.ToString();
             selectedProduct.content = dr.Cells["content"].Value.ToString();

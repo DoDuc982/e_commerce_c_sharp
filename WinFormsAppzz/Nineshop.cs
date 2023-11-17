@@ -47,7 +47,7 @@ namespace WinFormsAppzz
         {
             DataGridViewRow dr = dgvProduct.Rows[e.RowIndex];
             selectedProduct = new Product();
-            selectedProduct.id = long.Parse(dr.Cells["id"].Value.ToString());
+            selectedProduct.id = int.Parse(dr.Cells["id"].Value.ToString());
             selectedProduct.name = dr.Cells["name"].Value.ToString();
             selectedProduct.imageUrl = dr.Cells["image_url"].Value.ToString();
             selectedProduct.content = dr.Cells["content"].Value.ToString();

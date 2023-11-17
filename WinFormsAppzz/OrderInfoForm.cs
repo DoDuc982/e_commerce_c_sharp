@@ -23,7 +23,6 @@ namespace WinFormsAppzz
         {
             try
             {
-
                 Const.order.grandTotal = Const.order.subTotal + Const.order.shippingPrice;
                 string sql = "INSERT INTO order_info(firstname, lastname, mobile, email, address, district, province, city, sub_total, shipping_price, grand_total) VALUES ('" + Const.order.firstname + "','" + Const.order.lastname + "','" + Const.order.mobile + "','" + Const.order.email + "','" + Const.order.address + "','" + Const.order.district + "','" + Const.order.province + "','" + Const.order.city + "'," + Const.order.subTotal + "," + Const.order.shippingPrice + "," + Const.order.grandTotal + ")";
                 Functions.Function.RunSQL(sql);
@@ -38,19 +37,14 @@ namespace WinFormsAppzz
                 DataTable dtProductIds = Functions.Function.GetDataToTable(sql1);
                 foreach (DataRow row in dtProductIds.Rows)
                 {
-                    // Lấy thông tin từ mỗi dòng để thêm vào bảng order_item
                     int productId = Convert.ToInt32(row["id"]);
                     string productName = row["name"].ToString();
                     decimal productPrice = Convert.ToDecimal(row["discount_price"] != DBNull.Value ? row["discount_price"] : row["price"]);
                     int quantity = Convert.ToInt32(row["quantity"]);
                     string imageUrl = row["image_url"].ToString();
                     decimal totalPrice = productPrice * quantity;
-
-                    // Thực hiện truy vấn INSERT INTO để thêm dữ liệu vào bảng order_item
                     string insertSql = "INSERT INTO order_item ([name], [price], [quantity], [total_price], [order_id], [image_url]) " +
                                        $"VALUES ('{productName}', {productPrice}, {quantity}, {totalPrice}, {Const.order.id}, '{imageUrl}')";
-
-                    // Thực hiện truy vấn
                     Functions.Function.RunSQL(insertSql);
                 }
             }
@@ -58,6 +52,7 @@ namespace WinFormsAppzz
             {
                 MessageBox.Show("Lỗi khi đặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            Functions.Function.Disconnect();
         }
 
         private void OrderInfoForm_Load(object sender, EventArgs e)

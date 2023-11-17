@@ -9,7 +9,7 @@ namespace WinFormsAppzz
 {
     public class Product
     {
-        public long id { get; set; }
+        public int id { get; set; }
 
         public string? name { get; set; }
         public long? price { get; set; }

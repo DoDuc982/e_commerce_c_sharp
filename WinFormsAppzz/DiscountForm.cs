@@ -56,27 +56,34 @@ namespace WinFormsAppzz
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            try
+            if (txtCode.Text == "" || txtQuantity.Text == "" || txtContent.Text == "" || txtDecrease.Text == "")
             {
-                string sql = "";
-                int type = 0;
-                if (cbType.Text == "đ")
-                {
-                    type = 1;
-                    sql = "update discount set code= '" + txtCode.Text + "',content = '" + txtContent.Text + "',quantity = " + int.Parse(txtQuantity.Text.ToString()) + ",discount_type = " + type + ", price =" + float.Parse(txtDecrease.Text.ToString()) + " where id = " + txtId.Text;
-                }
-                else
-                {
-                    sql = "update discount set code= '" + txtCode.Text + "',content = '" + txtContent.Text + "',quantity = " + int.Parse(txtQuantity.Text.ToString()) + ",discount_type = " + type + ", percentage =" + float.Parse(txtDecrease.Text.ToString()) + " where id = " + txtId.Text;
-                }
-                Functions.Function.RunSQL(sql);
-                MessageBox.Show("Sửa mã giảm giá thành công");
-                loadDataGridView();
-                ResetValue();
+                MessageBox.Show("Thiếu thông tin");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    string sql = "";
+                    int type = 0;
+                    if (cbType.Text == "đ")
+                    {
+                        type = 1;
+                        sql = "update discount set code= '" + txtCode.Text + "',content = '" + txtContent.Text + "',quantity = " + int.Parse(txtQuantity.Text.ToString()) + ",discount_type = " + type + ", price =" + float.Parse(txtDecrease.Text.ToString()) + " where id = " + txtId.Text;
+                    }
+                    else
+                    {
+                        sql = "update discount set code= '" + txtCode.Text + "',content = '" + txtContent.Text + "',quantity = " + int.Parse(txtQuantity.Text.ToString()) + ",discount_type = " + type + ", percentage =" + float.Parse(txtDecrease.Text.ToString()) + " where id = " + txtId.Text;
+                    }
+                    Functions.Function.RunSQL(sql);
+                    MessageBox.Show("Sửa mã giảm giá thành công");
+                    loadDataGridView();
+                    ResetValue();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 

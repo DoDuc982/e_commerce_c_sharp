@@ -49,6 +49,7 @@ namespace WinFormsAppzz
                 {
                     MessageBox.Show(ex.Message);
                 }
+                Functions.Function.Disconnect();
             }
         }
 
